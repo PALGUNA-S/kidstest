@@ -1,10 +1,15 @@
-import React from 'react';
-import {
-    FerrisWheel, Clapperboard, Utensils, ShoppingBag, BookOpenText,
-    Baby, Star, ChevronRight, Sparkles
-} from 'lucide-react';
 import { Marquee } from '@/components/magicui/marquee';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+    Baby,
+    BookOpenText,
+    Clapperboard,
+    FerrisWheel,
+    ShoppingBag,
+    Sparkles,
+    Star,
+    Utensils
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
