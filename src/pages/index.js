@@ -1,117 +1,296 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+// "use client";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// import { Card } from '@/components/ui/card';
+// import { MapPin } from 'lucide-react';
+// import Link from 'next/link';
+// import AnimationButton from '../../components/Animation/AnimationButton';
+// import Header from '../../components/Header';
+// import { useEffect, useState } from 'react';
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const HomeBanner = () => {
+//   const [timeLeft, setTimeLeft] = useState({
+//     days: 0,
+//     hours: 0,
+//     minutes: 0,
+//     seconds: 0
+//   });
 
-export default function Home() {
+//   const openGoogleMaps = () => {
+//     window.open(`https://g.co/kgs/5nH75ib`, '_blank');
+//   };
+
+//   useEffect(() => {
+//     // Set the event date (May 31st, 2025)
+//     const eventDate = new Date('2025-05-31T00:00:00').getTime();
+
+//     const updateTimer = () => {
+//       const now = new Date().getTime();
+//       const distance = eventDate - now;
+
+//       if (distance > 0) {
+//         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+//         setTimeLeft({ days, hours, minutes, seconds });
+//       }
+//     };
+
+//     // Update immediately
+//     updateTimer();
+
+//     // Update every second
+//     const timer = setInterval(updateTimer, 1000);
+
+//     return () => clearInterval(timer);
+//   }, []);
+
+//   return (
+//     <>
+//       <div className="min-h-screen bg-cover bg-center bg-black/10 bg-blend-overlay 
+//     bg-[url('/images/sm.png')]       
+//     sm:bg-[url('/images/sm.png')]      
+//     md:bg-[url('/images/md.png')]      
+//     lg:bg-[url('/images/lg.png')]      
+//     text-black flex flex-col">
+
+//         <Header />
+//         <div className="flex-grow flex justify-start items-center px-6 md:px-12 py-12">
+//           <div className="max-w-4xl">
+//             <h1 className="text-4xl md:text-5xl uppercase font-bold bg-gradient-to-r from-purple-800 via-pink-700 to-teal-600 text-transparent bg-clip-text">
+//               {` India's largest KARNIVAL`}
+//             </h1>
+
+//             <div className="text-xl mt-2 font-medium">
+//               <p>{`Vijayawada's ultimate family entertainment extravaganza!`}</p>
+//             </div>
+
+//             <div className="px-4 bg-white/20 py-3 rounded-lg inline-block my-2">
+//               <p className="text-3xl italic text-blue-800 uppercase font-semibold">Summer Vibes</p>
+//               <p className="text-3xl text-red-800 uppercase font-semibold ">
+//                 May 31<sup className="text-sm align-super">st</sup> - 1<sup className="text-sm align-super">st</sup> June,
+//                 <span className="text-4xl font-bold"> 2025</span>
+//               </p>
+
+//             </div>
+
+//             {/* Address Information with Map Icon */}
+//             <Card className="bg-white/20 p-4 relative shadow-none rounded-lg max-w-md flex items-start justify-between hover:bg-white/30 transition-colors">
+//               <div>
+//                 <p className="font-bold uppercase">a Convention Centre a/c</p>
+//                 <p onClick={openGoogleMaps} className='cursor-pointer'>40-5-6A,MG Road, Vijayawada, Andhra Pradesh 520010</p>
+//                 <div className='flex gap-3 mt-2 font-bold items-center text-red-600'>
+//                   <Link href="https://wa.me/919701352244" target="_blank" rel="noopener noreferre">+91 9701352244</Link>
+//                   <Link href="https://wa.me/919032952244" target="_blank" rel="noopener noreferre">+91 9032952244</Link>
+//                 </div>
+//                 <p className='text-red-600 font-bold'>globalgrandeurevents@gmail.com</p>
+//               </div>
+//               <div onClick={openGoogleMaps} className='bg-white cursor-pointer rounded-md p-2 shadow-md'>
+//                 <MapPin className="h-6 w-6" />
+//               </div>
+//             </Card>
+
+//             {/* Countdown Timer */}
+//             <div className="max-w-md">
+//               <h3 className="font-semibold text-lg mb-2">Event Starts In:</h3>
+//               <div className="flex gap-4">
+//                 <div className="text-center bg-white/20 p-4 rounded-lg">
+//                   <div className="text-2xl font-bold">{timeLeft.days}</div>
+//                   <div className="text-sm">Days</div>
+//                 </div>
+//                 <div className="text-center bg-white/20 p-4 rounded-lg">
+//                   <div className="text-2xl font-bold">{timeLeft.hours}</div>
+//                   <div className="text-sm">Hours</div>
+//                 </div>
+//                 <div className="text-center bg-white/20 p-4 rounded-lg">
+//                   <div className="text-2xl font-bold">{timeLeft.minutes}</div>
+//                   <div className="text-sm">Minutes</div>
+//                 </div>
+//                 <div className="text-center bg-white/20 p-4 rounded-lg">
+//                   <div className="text-2xl font-bold">{timeLeft.seconds}</div>
+//                   <div className="text-sm">Seconds</div>
+//                 </div>
+//               </div>
+//             </div>
+
+//             <div className='flex gap-4 items-center'>
+//               <AnimationButton buttonText={"Register"} />
+//               <AnimationButton buttonText={"Booking Tickets"} />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default HomeBanner;
+
+"use client";
+
+import { Card } from '@/components/ui/card';
+import { MapPin } from 'lucide-react';
+import Link from 'next/link';
+import AnimationButton from '../../components/Animation/AnimationButton';
+import Header from '../../components/Header';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { Icon } from '@iconify/react';
+
+const HomeBanner = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  const openGoogleMaps = () => {
+    window.open(`https://g.co/kgs/5nH75ib`, '_blank');
+  };
+
+  useEffect(() => {
+    // Set the event date (May 31st, 2025)
+    const eventDate = new Date('2025-05-31T00:00:00').getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      }
+    };
+
+    // Update immediately
+    updateTimer();
+
+    // Update every second
+    const timer = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Generated by create next app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.js</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+      <div className="min-h-screen bg-cover bg-center bg-black/10 bg-blend-overlay 
+    bg-[url('/images/sm.png')]       
+    sm:bg-[url('/images/sm.png')]      
+    md:bg-[url('/images/md.png')]      
+    lg:bg-[url('/images/lg.png')]      
+    text-black flex flex-col">
+        <Header />
+        <motion.div
+          className="flex-grow flex justify-start items-center px-6 md:px-12 py-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="max-w-4xl">
+            <motion.h1
+              className="text-4xl md:text-5xl uppercase font-bold bg-gradient-to-r from-purple-800 via-pink-700 to-teal-600 text-transparent bg-clip-text"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              {` India's largest KARNIVAL`}
+            </motion.h1>
 
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
+              className="text-xl mt-2 font-medium"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
             >
-              <Image
-                className={styles.logo}
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
+              <p>{`Vijayawada's ultimate family entertainment Games/Music/Food`}</p>
+            </motion.div>
+
+            <motion.div
+              className="px-4 bg-white/20 py-3 rounded-lg inline-block my-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.7 }}
             >
-              Read our docs
-            </a>
+              <p className="text-3xl text-fuchsia-800 uppercase font-bold">Kids Funland Fair</p>
+              <p className="text-2xl text-slate-600 uppercase font-semibold ">
+                May 31<sup className="text-sm align-super">st</sup> - 1<sup className="text-sm align-super">st</sup> June,
+                <span className="text-4xl font-bold"> 2025</span>
+              </p>
+            </motion.div>
+
+            {/* Address Information with Map Icon */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.9 }}
+            >
+              <Card className="bg-white/20 p-4 relative shadow-none rounded-lg max-w-md flex items-start justify-between hover:bg-white/30 transition-colors">
+                <div>
+                  <p className="font-bold uppercase">a Convention Centre a/c</p>
+                  <p onClick={openGoogleMaps} className='cursor-pointer'>40-5-6A,MG Road, Vijayawada, Andhra Pradesh 520010</p>
+                  <div className='flex gap-3 mt-2 font-bold items-center text-green-600'>
+                    <Link href="https://wa.me/919701352244" target="_blank" rel="noopener noreferre" className='flex gap-2 items-center'>
+                      <Icon icon='ic:baseline-whatsapp' className="text-xl text-green-700" />
+                      +91 9701352244
+                    </Link>
+                    <Link href="https://wa.me/919032952244" target="_blank" rel="noopener noreferre" className='flex gap-2 items-center'>
+                      <Icon icon='ic:baseline-whatsapp' className="text-xl text-green-700" />
+                      +91 9032952244
+                    </Link>
+                  </div>
+                  <Link href='mailto:globalgrandeurevents@gmail.com'
+                    target="_blank"
+                    rel="noopener noreferrer" className='text-red-600 font-bold'>globalgrandeurevents@gmail.com</Link>
+                </div>
+                <div onClick={openGoogleMaps} className='bg-white cursor-pointer rounded-md p-2 shadow-md'>
+                  <MapPin className="h-6 w-6" />
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Countdown Timer */}
+            <motion.div
+              className="max-w-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.1 }}
+            >
+              <h3 className="font-semibold text-lg mb-2">Event Starts In:</h3>
+              <div className="flex gap-4">
+                <div className="text-center bg-white/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold">{timeLeft.days}</div>
+                  <div className="text-sm">Days</div>
+                </div>
+                <div className="text-center bg-white/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold">{timeLeft.hours}</div>
+                  <div className="text-sm">Hours</div>
+                </div>
+                <div className="text-center bg-white/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold">{timeLeft.minutes}</div>
+                  <div className="text-sm">Minutes</div>
+                </div>
+                <div className="text-center bg-white/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold">{timeLeft.seconds}</div>
+                  <div className="text-sm">Seconds</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className='flex gap-4 items-center'>
+              <AnimationButton buttonText={"Register"} />
+              <AnimationButton buttonText={"Booking Tickets"} />
+            </div>
           </div>
-        </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
-        </footer>
+        </motion.div>
       </div>
     </>
   );
-}
+};
+
+export default HomeBanner;
