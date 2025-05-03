@@ -205,7 +205,7 @@ const HomeBanner = () => {
   return (
     <>
       {/* <div className="min-h-screen bg-cover bg-center relative bg-[#fef7f1] text-black flex flex-col overflow-hidden"> */}
-      <div className="min-h-screen bg-cover bg-center 
+      <div className="min-h-screen bg-cover bg-center xs:py-16 md:py-2
       bg-[url('/images/sm.png')] 
       sm:bg-[url('/images/sm.png')] 
       md:bg-[url('/images/md.png')] 
