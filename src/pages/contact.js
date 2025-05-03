@@ -182,7 +182,7 @@ const socialLinks = [
 
 const Contact = () => {
     return (
-        <div className="bg-[url('/images/3d.png')] xs:py-16 md:py-2 h-screen flex justify-center items-center  bg-cover bg-center bg-blend-overlay bg-white/20 px-6 py-8">
+        <div className="bg-[url('/images/3d.png')] xs:py-16 md:py-2 min-h-screen flex justify-center items-center  bg-cover bg-center bg-blend-overlay bg-white/20 px-6 py-8">
             <div>
                 {/* Full Width Why Section */}
                 <motion.div
